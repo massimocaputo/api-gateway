@@ -3,19 +3,18 @@ server:
 
 spring:
   application:
-    name: API-GATEWAY
-    
+    name: API-GATEWAY    
   cloud:
     gateway:
       routes:
       - id: USER-SERVICE
         uri: lb://USER-SERVICE
         predicates:
-        - Path=/user/**
+          - Path=/nemo/user/**
       - id: DEPARTMENT-SERVICE
         uri: lb://DEPARTMENT-SERVICE
         predicates:
-        - Path=/department/**
+          - Path=/nemo/department/**
         
            
 
@@ -25,8 +24,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8761/eureka
-      
+      defaultZone: http://localhost:8761/eureka      
   instance:
     hostname: localhost
    
